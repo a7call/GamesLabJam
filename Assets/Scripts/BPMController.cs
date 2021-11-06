@@ -83,16 +83,29 @@ public class BPMController : Singleton<BPMController>
 
         if (matchingArrow)
         {
+            
             if (matchingArrow.arrowType == InputType.Down)
+            {
+                //Marque un point 
                 ToyManager.Instance.SetRandomToyType();
+                ScoreManager.Instance.UpScoreToy();
+            }
+            else
+            {
+                ScoreManager.Instance.UpScoreLR();
+            }
 
             ToyManager.Instance.ShuffleToys();
             currentArrows.Clear();
+
+
+            
         }
         else
         {
             currentArrows.Clear();
             Debug.Log("Loose");
+            ScoreManager.Instance.stopCombo();
         }
     }
 
