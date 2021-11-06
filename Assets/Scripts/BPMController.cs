@@ -103,11 +103,15 @@ public class BPMController : Singleton<BPMController>
             }
                 
             currentArrows.Clear();
+
+
+            
         }
         else
         {
             currentArrows.Clear();
             Debug.Log("Loose");
+            ScoreManager.Instance.stopCombo();
         }
     }
 

@@ -24,7 +24,7 @@ public class PelucheController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("D"))
+        // if(Input.GetKeyDown("D"))
         {
             // Si on est bon 
             shufflePeluches();
@@ -33,7 +33,7 @@ public class PelucheController : MonoBehaviour
             // AnimRaté
             
         }
-        
+
         //On check si la bonne peluche est là
         bonnePeluche = (typePelucheVoulue == pelucheMain.getPelucheType());
 
