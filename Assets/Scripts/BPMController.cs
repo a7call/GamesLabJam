@@ -83,7 +83,10 @@ public class BPMController : Singleton<BPMController>
 
         if (matchingArrow)
         {
-            Debug.Log("Win");
+            if (matchingArrow.arrowType == InputType.Down)
+                ToyManager.Instance.SetRandomToyType();
+
+            ToyManager.Instance.ShuffleToys();
             currentArrows.Clear();
         }
         else

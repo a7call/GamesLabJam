@@ -13,6 +13,8 @@ public class ArrowSpawner : MonoBehaviour
     [SerializeField] Transform leftSpawner;
     [SerializeField] Transform rightSpawner;
 
+    public bool shouldSpawnDoubleArrow = false;
+
 
     public void SpawnArrow()
     {
@@ -22,24 +24,29 @@ public class ArrowSpawner : MonoBehaviour
             return;
         }
 
-        var rand = Random.Range(0, 3);
+        if (shouldSpawnDoubleArrow)
+        {
+
+            GameObject arrow = Instantiate(DowntArrow, leftSpawner.position, Quaternion.identity);
+            arrow.transform.SetParent(leftSpawner);
+            GameObject arrow2 = Instantiate(DowntArrow, rightSpawner.position, Quaternion.identity);
+            arrow2.transform.SetParent(rightSpawner);
+            shouldSpawnDoubleArrow = false;
+            return;
+        }
+
+        var rand = Random.Range(0, 2);
         if (rand == 0)
         {
             GameObject arrow = Instantiate(lefttArrow, leftSpawner.position, Quaternion.identity);
             arrow.transform.SetParent(leftSpawner);
         }
-        else if(rand == 1)
+        else
         {
             GameObject arrow = Instantiate(rightArrow, rightSpawner.position, Quaternion.identity);
             arrow.transform.SetParent(rightSpawner);
         }
-        else
-        {
-            GameObject arrow = Instantiate(DowntArrow, leftSpawner.position, Quaternion.identity);
-            arrow.transform.SetParent(leftSpawner);
-            GameObject arrow2 = Instantiate(DowntArrow, rightSpawner.position, Quaternion.identity);
-            arrow2.transform.SetParent(rightSpawner);
-        }
-
     }
+        
 }
+
