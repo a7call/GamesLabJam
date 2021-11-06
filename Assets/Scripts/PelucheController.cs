@@ -11,6 +11,10 @@ public class PelucheController : MonoBehaviour
 
     private Animator animator;
 
+    private int typePelucheVoulue;
+
+    public static bool bonnePeluche;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +24,19 @@ public class PelucheController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.anyKeyDown)
+        if(Input.GetKeyDown("D"))
         {
+            // Si on est bon 
             shufflePeluches();
+
+            // sinon
+            // AnimRaté
             
         }
+        
+        //On check si la bonne peluche est là
+        bonnePeluche = (typePelucheVoulue == pelucheMain.getPelucheType());
+
 
     }
 

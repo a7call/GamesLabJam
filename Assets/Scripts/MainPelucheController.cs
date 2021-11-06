@@ -12,8 +12,10 @@ public class MainPelucheController : MonoBehaviour
     {
         material = this.GetComponent<Renderer>().material;
         material.color = Color.black;
+
         
     }
+    
 
     public void changePeluche(){
         int rand = (int) Random.Range(1,4);
@@ -37,5 +39,10 @@ public class MainPelucheController : MonoBehaviour
                 break;
         }
         material.color = color;
+    }
+
+    public int getPelucheType()
+    {
+        return this.pelucheType;
     }
 }
