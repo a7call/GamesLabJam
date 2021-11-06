@@ -94,11 +94,13 @@ public class BPMController : Singleton<BPMController>
             }
             else if(matchingArrow.arrowType == ArrowType.Up)
             {
+                ScoreManager.Instance.UpScoreToy();
                 ToyManager.Instance.SetRandomToyType();
                 claw.ScoreToy();               
             }
             else
             {
+                ScoreManager.Instance.UpScoreLR();
                 ToyManager.Instance.ShuffleToys();
             }
                 
