@@ -5,7 +5,7 @@ using System;
 
 public class ToyManager : Singleton<ToyManager>
 {
-    Toy currentSpawnedToy;
+    public Toy currentSpawnedToy;
     
 
     [Header("Spawner")]
@@ -35,29 +35,43 @@ public class ToyManager : Singleton<ToyManager>
 
     public void ShuffleToys()
     {
+
         ReplaceToy();
         SpawnToy();
     }
 
     void ReplaceToy()
     {
+        if (currentSpawnedToy.isPicked)
+        {
+            currentSpawnedToy = null;
+            return;
+        }
+           
+
         var goToDestroy = currentSpawnedToy.gameObject;
         goToDestroy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
-        goToDestroy.transform.DOMove(spawner.transform.position, duration).OnComplete(() => Destroy(goToDestroy));
-
+        goToDestroy.transform.DOMove(spawner.transform.position, duration).OnComplete(() => Destroy(goToDestroy, 0.5f));
     }
 
 
     void SpawnToy()
     {
         currentSpawnedToy = spawner.SpawnToy().GetComponent<Toy>();
-        currentSpawnedToy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
-        currentSpawnedToy.transform.DOMove(machinePos.position, duration);
+
         if (currentSpawnedToy.type == typeToGet)
         {
             arrowSpawner.shouldSpawnDoubleArrow = true;
-            return;
         }
+        currentSpawnedToy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
+        currentSpawnedToy.transform.DOMove(machinePos.position, duration);
+    }
+
+    public void ScorePickedToy()
+    {
+        //SCORING;      
+        ShuffleToys();
+        
     }
 
 

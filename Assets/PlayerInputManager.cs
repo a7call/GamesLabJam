@@ -12,6 +12,10 @@ public class PlayerInputManager : MonoBehaviour
         {
             BPMController.Instance.ProcessInput("Down");
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow) && BPMController.Instance.isBeatable)
+        {
+            BPMController.Instance.ProcessInput("Up");
+        }
         else if (Input.GetKeyDown(KeyCode.LeftArrow) && BPMController.Instance.isBeatable)
         {
             BPMController.Instance.ProcessInput("Left");

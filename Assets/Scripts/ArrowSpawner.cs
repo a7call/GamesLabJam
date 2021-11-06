@@ -2,18 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArrowSpawner : MonoBehaviour
+public class ArrowSpawner : Singleton<ArrowSpawner>
 {
     [Header("ArrowPrefabs")]
     [SerializeField] GameObject rightArrow;
     [SerializeField] GameObject lefttArrow;
     [SerializeField] GameObject DowntArrow;
+    [SerializeField] GameObject UpArrow;
 
     [Header("Spawner Positions")]
     [SerializeField] Transform leftSpawner;
     [SerializeField] Transform rightSpawner;
 
     public bool shouldSpawnDoubleArrow = false;
+    public bool shouldUpBear { get; set; } = false;
 
 
     public void SpawnArrow()
@@ -24,14 +26,24 @@ public class ArrowSpawner : MonoBehaviour
             return;
         }
 
+        if (shouldUpBear)
+        {
+            GameObject arrow = Instantiate(UpArrow, leftSpawner.position, Quaternion.identity);
+            arrow.transform.SetParent(leftSpawner);
+            GameObject arrow2 = Instantiate(UpArrow, rightSpawner.position, Quaternion.identity);
+            arrow2.transform.SetParent(rightSpawner);
+            shouldUpBear = false;
+            return;
+        }
+
         if (shouldSpawnDoubleArrow)
         {
-
             GameObject arrow = Instantiate(DowntArrow, leftSpawner.position, Quaternion.identity);
             arrow.transform.SetParent(leftSpawner);
             GameObject arrow2 = Instantiate(DowntArrow, rightSpawner.position, Quaternion.identity);
             arrow2.transform.SetParent(rightSpawner);
             shouldSpawnDoubleArrow = false;
+            shouldUpBear = true;
             return;
         }
 

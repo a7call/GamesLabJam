@@ -10,4 +10,7 @@ public enum ToyType
 public class Toy : MonoBehaviour
 {
     public ToyType type;
+    public bool isPicked;
+
+
 }

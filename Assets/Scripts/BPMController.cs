@@ -12,6 +12,9 @@ public class BPMController : Singleton<BPMController>
     [Header("Arrows")]
     [SerializeField] ArrowSpawner spawner;
 
+    [Header("Claw")]
+    [SerializeField] UfoClaw claw;
+
 
     //Interval de temps entre un beat et un autre;
     public float beatInterval { get; private set; }
@@ -83,10 +86,22 @@ public class BPMController : Singleton<BPMController>
 
         if (matchingArrow)
         {
-            if (matchingArrow.arrowType == InputType.Down)
+            currentArrows.ForEach(a => a.isHit = true);
+            if (matchingArrow.arrowType == ArrowType.Down)
+            {
+                claw.TryGetToy();   
+                
+            }
+            else if(matchingArrow.arrowType == ArrowType.Up)
+            {
                 ToyManager.Instance.SetRandomToyType();
-
-            ToyManager.Instance.ShuffleToys();
+                claw.ScoreToy();               
+            }
+            else
+            {
+                ToyManager.Instance.ShuffleToys();
+            }
+                
             currentArrows.Clear();
         }
         else
