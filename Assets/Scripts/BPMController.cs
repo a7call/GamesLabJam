@@ -110,6 +110,7 @@ public class BPMController : Singleton<BPMController>
 
         if (matchingArrow)
         {
+            PlayerInputManager.Instance.MoveMachineSucess();
             currentArrows.ForEach(a => a.isHit = true);
             if (matchingArrow.arrowType == ArrowType.Down)
             {
