@@ -134,14 +134,11 @@ public class BPMController : Singleton<BPMController>
             currentArrows.Clear();
             Debug.Log("loose a life");
             looseALife();
-            ScoreManager.Instance.stopCombo();
         }
     }
 
     public void looseALife()
     {
-        
-
         if(ScoreManager.Instance.lifePlayer < 1)
         {
             Debug.Log("TAS PERDU");
