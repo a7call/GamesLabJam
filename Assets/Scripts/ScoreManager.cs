@@ -60,7 +60,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
 
     void changeBPM(){
-        if (score > (lastScore + 20000) && score < 120000){
+        if ((score > (lastScore + 20000)) && (BPMController.Instance.bpm < 70)){
             Debug.Log("changeBPM");
             BPMController.Instance.bpm += 5 ;
             string musicToPlay = "Zakku_" + BPMController.Instance.bpm*2;
