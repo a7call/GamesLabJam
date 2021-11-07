@@ -39,15 +39,21 @@ public class ToyManager : Singleton<ToyManager>
 
     void ReplaceToy()
     {
-        var goToDestroy = currentSpawnedToy.gameObject;
-        if (currentSpawnedToy.isPicked)
+      
+       
+        if (currentSpawnedToy != null)
         {
-            currentSpawnedToy = null;
-            return;
+            if (currentSpawnedToy.isPicked)
+            {
+                currentSpawnedToy = null;
+                return;
+            }
+            var goToDestroy = currentSpawnedToy.gameObject;
+            goToDestroy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
+            goToDestroy.transform.DOMove(spawner.transform.position, duration).OnComplete(() => Destroy(goToDestroy, 0.5f));
+
         }
-        
-        goToDestroy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
-        goToDestroy.transform.DOMove(spawner.transform.position, duration).OnComplete(() => Destroy(goToDestroy, 0.5f));
+            
     }
 
 
@@ -60,8 +66,7 @@ public class ToyManager : Singleton<ToyManager>
 
     public void ScorePickedToy()
     {
-        //SCORING;      
-        ShuffleToys();    
+        currentSpawnedToy = null;
     }
 
 
