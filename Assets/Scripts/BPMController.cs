@@ -21,8 +21,8 @@ public class BPMController : Singleton<BPMController>
     public float beatTimer;
 
     //  1/8 de beat 
-    private float beatIntervalD8; 
-    private float beatTimerD8;
+    private float beatIntervalD2; 
+    private float beatTimerD2;
     
     //Defini si on a passé un temps entier
     //A chaque fois qu'il passe à true, on est pile sur un temps
@@ -31,7 +31,7 @@ public class BPMController : Singleton<BPMController>
     public static int beatCountFull;
 
     //Comme beatFull, mais sur un 8eme de temps
-    public static bool beatD8;
+    public static bool beatD2;
     public static int beatCountD8;
 
     public  bool isBeatable = false;
@@ -52,10 +52,12 @@ public class BPMController : Singleton<BPMController>
     {
         if(startGame == 1)
         {
+            songQueued = "Zakku_100";
+            newSongQueued = true;
             BeatDetection();
-            AudioManager.Instance.Play("Zakku_100", AudioManager.Instance.gameObject);
-            songPlaying = "Zakku_100";
-            startGame = 2;
+            
+                
+                startGame = 2; 
         }
         else if(startGame == 2){
              BeatDetection();
@@ -70,14 +72,7 @@ public class BPMController : Singleton<BPMController>
 
         if(beatTimer >= beatInterval)
         {
-            if(newSongQueued)
-            {
-                AudioManager audioManager = AudioManager.Instance;
-                audioManager.Stop(songPlaying);
-                audioManager.Play(songQueued, audioManager.gameObject);
-                songPlaying = songQueued;
-                newSongQueued= false;
-            }
+           
             StartCoroutine(spawner.SpawnArrow());
             beatTimer -= beatInterval;
            
@@ -87,15 +82,25 @@ public class BPMController : Singleton<BPMController>
         }
 
         // 8th of a beat count 
-        beatD8 = false;
-        beatIntervalD8 = beatInterval / 8;
-        beatTimerD8 += Time.fixedDeltaTime;
+        beatD2 = false;
+        beatIntervalD2 = beatInterval / 2;
+        beatTimerD2 += Time.fixedDeltaTime;
 
-        if (beatTimerD8 >= beatIntervalD8)
+        if (beatTimerD2 >= beatIntervalD2)
         {
-            beatTimerD8 -= beatIntervalD8;
-            beatD8 = true;
+            beatTimerD2 -= beatIntervalD2;
+            beatD2 = true;
             beatCountD8++; 
+
+
+            if(newSongQueued )
+            { 
+                AudioManager audioManager = AudioManager.Instance;
+                audioManager.Stop(songPlaying);
+                audioManager.Play(songQueued, audioManager.gameObject);
+                songPlaying = songQueued;
+                newSongQueued= false;
+            }
         }
 
     }
