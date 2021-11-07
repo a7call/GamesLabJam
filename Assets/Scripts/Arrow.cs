@@ -46,18 +46,18 @@ public class Arrow : MonoBehaviour
         SetBeatableFalse();
         if (!isHit)
         {
-            if (arrowType == ArrowType.Down)
-            {
-                MissedInput();
-            }
+            MissedInput();
         }   
 
     }
 
     void MissedInput()
     {
-        UfoClaw.Instance.GFX.DOMove(UfoClaw.Instance.UpPos.position, UfoClaw.Instance.moveDuration);
-        ToyManager.Instance.ShuffleToys();
+        if (arrowType == ArrowType.Down)
+        {
+            UfoClaw.Instance.GFX.DOMove(UfoClaw.Instance.UpPos.position, UfoClaw.Instance.moveDuration);
+            ToyManager.Instance.ShuffleToys();
+        }
         // LOOSELIFE
     }
     void SetBeatableTrue()

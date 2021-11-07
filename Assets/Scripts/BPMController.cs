@@ -108,15 +108,14 @@ public class BPMController : Singleton<BPMController>
     public void ProcessInput(string input)
     {
         if (currentArrows.Count <= 0)
-            {
-                return;
-            } 
+        {
+            return;
+        } 
         
         var matchingArrow = currentArrows.FirstOrDefault(a => a.arrowType.ToString() == input);
 
         if (matchingArrow)
-        {   
-
+        {
             PlayerInputManager.Instance.MoveMachineSucess();
             currentArrows.ForEach(a => a.isHit = true);
             if (matchingArrow.arrowType == ArrowType.Down)
@@ -125,14 +124,9 @@ public class BPMController : Singleton<BPMController>
                 ScoreManager.Instance.UpScoreToy();
                 ToyManager.Instance.currentSpawnedToy.isPicked = true;
                 claw.TryGetToy();
-                ToyManager.Instance.ScorePickedToy(); 
-
+                ToyManager.Instance.ScorePickedToy();
                 AudioManager.Instance.pointsToy();
-
-
-                
-            
-            Debug.Log("WIn BEAUCOUP points");       
+                Debug.Log("WIn BEAUCOUP points");     
 
             }
             else
@@ -140,17 +134,13 @@ public class BPMController : Singleton<BPMController>
                 ScoreManager.Instance.UpScoreLR();
                 AudioManager.Instance.pointsClassic();
                 ToyManager.Instance.ShuffleToys();
-
-            Debug.Log("WIn points");       
-            
+                Debug.Log("WIn points");
             }
-                
             currentArrows.Clear();       
         }
         else
         {
             currentArrows.Clear();
-            Debug.Log("loose a life");
             looseALife();
         }
     }
