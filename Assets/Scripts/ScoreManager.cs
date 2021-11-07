@@ -24,7 +24,7 @@ public class ScoreManager : Singleton<ScoreManager>
     }
     void Update()
     {
-            Debug.Log("SCORE : " + score );
+           // Debug.Log("SCORE : " + score );
             changeBPM();
     }
     public void UpScoreToy()

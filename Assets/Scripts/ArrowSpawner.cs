@@ -14,26 +14,31 @@ public class ArrowSpawner : Singleton<ArrowSpawner>
     [SerializeField] Transform leftSpawner;
     [SerializeField] Transform rightSpawner;
 
-    public bool shouldSpawnDoubleArrow = false;
+    public bool shouldSpawnDoubleArrow { get; set; }
     public bool shouldUpBear { get; set; } = false;
 
 
-    public void SpawnArrow()
+    public IEnumerator SpawnArrow()
     {
         if (rightArrow == null || lefttArrow == null || rightSpawner == null || leftSpawner == null)
         {
             Debug.LogError("Arrow prefabs or spawner are not set up");
-            return;
+            yield break ;
         }
 
-        if (shouldUpBear)
+        //if (shouldUpBear)
+        //{
+        //    GameObject arrow = Instantiate(UpArrow, leftSpawner.position, Quaternion.identity);
+        //    arrow.transform.SetParent(leftSpawner);
+        //    GameObject arrow2 = Instantiate(UpArrow, rightSpawner.position, Quaternion.identity);
+        //    arrow2.transform.SetParent(rightSpawner);
+        //    shouldUpBear = false;
+        //    return;
+        //}
+        yield return new WaitForSeconds(0.05f);
+        if (ToyManager.Instance.currentSpawnedToy.type == ToyManager.Instance.typeToGet)
         {
-            GameObject arrow = Instantiate(UpArrow, leftSpawner.position, Quaternion.identity);
-            arrow.transform.SetParent(leftSpawner);
-            GameObject arrow2 = Instantiate(UpArrow, rightSpawner.position, Quaternion.identity);
-            arrow2.transform.SetParent(rightSpawner);
-            shouldUpBear = false;
-            return;
+            shouldSpawnDoubleArrow = true;
         }
 
         if (shouldSpawnDoubleArrow)
@@ -42,9 +47,9 @@ public class ArrowSpawner : Singleton<ArrowSpawner>
             arrow.transform.SetParent(leftSpawner);
             GameObject arrow2 = Instantiate(DowntArrow, rightSpawner.position, Quaternion.identity);
             arrow2.transform.SetParent(rightSpawner);
+            arrow2.GetComponent<Arrow>().isActivated = false;
             shouldSpawnDoubleArrow = false;
-            shouldUpBear = true;
-            return;
+            yield break;
         }
 
         var rand = Random.Range(0, 2);

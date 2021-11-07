@@ -21,11 +21,9 @@ public class ToyManager : Singleton<ToyManager>
 
 
     [Header("To Catch")]
-    [SerializeField] ToyType typeToGet;
+    public ToyType typeToGet;
     [SerializeField] ArrowSpawner arrowSpawner;
     [SerializeField] DisplayToyToCatch displayToy;
-
-
 
     private void Start()
     {
@@ -35,21 +33,19 @@ public class ToyManager : Singleton<ToyManager>
 
     public void ShuffleToys()
     {
-
         ReplaceToy();
         SpawnToy();
     }
 
     void ReplaceToy()
     {
+        var goToDestroy = currentSpawnedToy.gameObject;
         if (currentSpawnedToy.isPicked)
         {
             currentSpawnedToy = null;
             return;
         }
-           
-
-        var goToDestroy = currentSpawnedToy.gameObject;
+        
         goToDestroy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
         goToDestroy.transform.DOMove(spawner.transform.position, duration).OnComplete(() => Destroy(goToDestroy, 0.5f));
     }
@@ -58,11 +54,6 @@ public class ToyManager : Singleton<ToyManager>
     void SpawnToy()
     {
         currentSpawnedToy = spawner.SpawnToy().GetComponent<Toy>();
-
-        if (currentSpawnedToy.type == typeToGet)
-        {
-            arrowSpawner.shouldSpawnDoubleArrow = true;
-        }
         currentSpawnedToy.transform.DOShakeScale(duration, strenght, vibrato, randomness, fadeOut);
         currentSpawnedToy.transform.DOMove(machinePos.position, duration);
     }
@@ -70,8 +61,7 @@ public class ToyManager : Singleton<ToyManager>
     public void ScorePickedToy()
     {
         //SCORING;      
-        ShuffleToys();
-        
+        ShuffleToys();    
     }
 
 

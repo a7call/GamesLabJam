@@ -16,6 +16,8 @@ public class UfoClaw : Singleton<UfoClaw>
     [Header("Arrows")]
     [SerializeField] ArrowSpawner arrowSpawner;
 
+    [SerializeField] DisplayToyToCatch displayToy;
+
     private Toy pickedToy;
 
     private bool catchable = false;
@@ -25,18 +27,18 @@ public class UfoClaw : Singleton<UfoClaw>
         GFX.DOMove(downPos.position, moveDuration).OnComplete(() =>
         {
             catchable = true;
+            ScoreToy();
         });
-        // SPAWN UP ARROW
+        
     }
 
     public void ScoreToy()
     {
-        pickedToy.isPicked = true;
-        ToyManager.Instance.ScorePickedToy();
         GFX.DOMove(UpPos.position, moveDuration).OnComplete(() =>
-        {
+        {   
             Destroy(pickedToy.gameObject);
-        });
+
+        });  
     }
 
     public void OnCollideWithToy(Collider2D collision)

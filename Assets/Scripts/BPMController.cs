@@ -18,7 +18,7 @@ public class BPMController : Singleton<BPMController>
 
     //Interval de temps entre un beat et un autre;
     public float beatInterval { get; private set; }
-    private float beatTimer;
+    public float beatTimer;
 
     //  1/8 de beat 
     private float beatIntervalD8; 
@@ -56,7 +56,7 @@ public class BPMController : Singleton<BPMController>
 
         if(beatTimer >= beatInterval)
         {
-            spawner.SpawnArrow();
+            StartCoroutine(spawner.SpawnArrow());
             beatTimer -= beatInterval;
            
             //On a passé un beat entier
@@ -89,14 +89,12 @@ public class BPMController : Singleton<BPMController>
             currentArrows.ForEach(a => a.isHit = true);
             if (matchingArrow.arrowType == ArrowType.Down)
             {
-                claw.TryGetToy();   
-                
-            }
-            else if(matchingArrow.arrowType == ArrowType.Up)
-            {
-                ScoreManager.Instance.UpScoreToy();
                 ToyManager.Instance.SetRandomToyType();
-                claw.ScoreToy();               
+                ScoreManager.Instance.UpScoreToy();
+                ToyManager.Instance.currentSpawnedToy.isPicked = true;
+                claw.TryGetToy();
+                ToyManager.Instance.ScorePickedToy();
+
             }
             else
             {
@@ -104,10 +102,7 @@ public class BPMController : Singleton<BPMController>
                 ToyManager.Instance.ShuffleToys();
             }
                 
-            currentArrows.Clear();
-
-
-            
+            currentArrows.Clear();       
         }
         else
         {

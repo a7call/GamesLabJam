@@ -18,6 +18,7 @@ public class Arrow : MonoBehaviour
     Image image;
     public ArrowType arrowType;
     public bool isHit = false;
+    public bool isActivated = true;
     private void Awake()
     {
         DOTween.Init();
@@ -27,10 +28,14 @@ public class Arrow : MonoBehaviour
     }
     void Start()
     {
-        transform.DOMove(beatCounterUI.position,BPMControllerInstance.beatInterval).SetEase(Ease.Linear).OnComplete(() =>
+        transform.DOMove(beatCounterUI.position,BPMControllerInstance.beatInterval - BPMControllerInstance.beatTimer).SetEase(Ease.Linear).OnComplete(() =>
         {
-                StartCoroutine(BeatableCo());
-                Destroy(gameObject, 0.3f);                 
+            if (isActivated)
+            {
+                StartCoroutine(BeatableCo());              
+            }
+            image.DOColor(new Color(image.color.r, image.color.g, image.color.b, 0), 0.2f);
+            Destroy(gameObject, 0.3f);
         });
     }
     IEnumerator BeatableCo()
@@ -39,23 +44,19 @@ public class Arrow : MonoBehaviour
         SetBeatableFalse();
         if (!isHit)
         {
-            if (arrowType == ArrowType.Down || arrowType == ArrowType.Up)
+            if (arrowType == ArrowType.Down)
             {
                 MissedInput();
             }
         }   
-        image.DOColor(new Color(image.color.r, image.color.g, image.color.b, 0), 0.2f);
+
     }
 
     void MissedInput()
     {
-        ArrowSpawner.Instance.shouldUpBear = false;
         UfoClaw.Instance.GFX.DOMove(UfoClaw.Instance.UpPos.position, UfoClaw.Instance.moveDuration);
         ToyManager.Instance.ShuffleToys();
-        ToyManager.Instance.SetRandomToyType();
-
         // LOOSELIFE
-
     }
     void SetBeatableTrue()
     {
