@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class PlayerInputManager : MonoBehaviour
 {
+
+    private bool firstInput=false;
     private void Update()
     {
-  
+        if(Input.anyKeyDown && !firstInput)
+        {
+            //start the game
+            firstInput = true;
+            BPMController.Instance.setStartGame();
+        }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && BPMController.Instance.isBeatable)
         {
