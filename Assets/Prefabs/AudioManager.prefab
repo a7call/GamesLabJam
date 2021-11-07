@@ -72,3 +72,17 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     spatialBlend: 0
+  - name: Zakku_130
+    audioClip: {fileID: 8300000, guid: 004ef3bbf99ca9f48b5ccc5f51b8b81a, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    spatialBlend: 0
+  - name: Zakku_140
+    audioClip: {fileID: 8300000, guid: 5997660bce04c0b4db14729abab54f9a, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.06
+    pitch: 1
+    loop: 1
+    spatialBlend: 0
