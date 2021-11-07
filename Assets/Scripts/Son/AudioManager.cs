@@ -149,7 +149,8 @@ public class AudioManager : Singleton<AudioManager>
             try{
             // Debug.Log("Name : " + songName);
 
-            int fxChosen = UnityEngine.Random.Range(0,impacts.Length-1); 
+            int fxChosen = UnityEngine.Random.Range(0,impacts.Length); 
+            Debug.Log("fxChosen : " + fxChosen );
             SoundParam sp = impacts[fxChosen];
         
             Debug.Log("sfx : " + sp.audioClip.name);
@@ -160,14 +161,10 @@ public class AudioManager : Singleton<AudioManager>
                 LoadSource(sp, this.gameObject);
 
             }
-            else
-            {
-
-                sp.audioSource.PlayOneShot(sp.audioClip);
-            }
+            sp.audioSource.PlayOneShot(sp.audioClip);
         }
         catch(NullReferenceException){
-            Debug.Log("Audio clip" + impacts[0] + " non existant");
+        Debug.Log("Audio clip" + impacts[0] + " non existant");
         }
     }
 
@@ -195,5 +192,12 @@ public class AudioManager : Singleton<AudioManager>
 
         //FX stylé
         Play("ToyCatched", this.gameObject);
+    }
+
+    public void failedSound()
+    {
+        playRandomPitch("Impact4", this.gameObject, 0.7f, 1.2f);
+
+        Play("Failed", this.gameObject);
     }
 }
