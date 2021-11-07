@@ -54,7 +54,10 @@ public class Arrow : MonoBehaviour
         ToyManager.Instance.ShuffleToys();
         ToyManager.Instance.SetRandomToyType();
 
-        // LOOSELIFE
+        // LOOSELIFE 
+        //NOT WORKING on perd deux pv dans le cas des arrow down et zéro dans l'autre ?????
+        
+        // BPMController.Instance.looseALife();
 
     }
     void SetBeatableTrue()
