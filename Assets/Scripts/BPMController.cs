@@ -35,8 +35,13 @@ public class BPMController : Singleton<BPMController>
     public static int beatCountD8;
 
     public  bool isBeatable = false;
+
+    public  bool newSongQueued = false;
+    private string songQueued, songPlaying;
+
     public List<Arrow> currentArrows;
 
+    private int  startGame = 0 ;
     private void Awake()
     {
         currentArrows = new List<Arrow>();
@@ -45,7 +50,16 @@ public class BPMController : Singleton<BPMController>
 
     private void FixedUpdate()
     {
-        BeatDetection();
+        if(startGame == 1)
+        {
+            BeatDetection();
+            AudioManager.Instance.Play("Zakku_100", AudioManager.Instance.gameObject);
+            songPlaying = "Zakku_100";
+            startGame = 2;
+        }
+        else if(startGame == 2){
+             BeatDetection();
+        }
     }
     void BeatDetection()
     {
@@ -56,6 +70,14 @@ public class BPMController : Singleton<BPMController>
 
         if(beatTimer >= beatInterval)
         {
+            if(newSongQueued)
+            {
+                AudioManager audioManager = AudioManager.Instance;
+                audioManager.Stop(songPlaying);
+                audioManager.Play(songQueued, audioManager.gameObject);
+                songPlaying = songQueued;
+                newSongQueued= false;
+            }
             StartCoroutine(spawner.SpawnArrow());
             beatTimer -= beatInterval;
            
@@ -127,6 +149,16 @@ public class BPMController : Singleton<BPMController>
         {
             ScoreManager.Instance.looseLife();
         }
+    }
+
+    public void setStartGame(){
+        startGame = 1;
+    }
+
+    public void askForNewSong(string musicToPlay)
+    {
+        newSongQueued = true;
+        songQueued = musicToPlay;
     }
 
 
