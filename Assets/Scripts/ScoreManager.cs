@@ -72,6 +72,7 @@ public class ScoreManager : Singleton<ScoreManager>
     public void looseLife()
     {
         lifePlayer --;
+        stopCombo();
         scoreUI.handleLifePlayerUI();
     }
 }
