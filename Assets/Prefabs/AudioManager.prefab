@@ -47,42 +47,106 @@ MonoBehaviour:
   - name: ArcadeAmbience
     audioClip: {fileID: 8300000, guid: 543858265d9551140bba27782e65afdc, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.031
+    volume: 0.14
     pitch: 1
     loop: 1
     spatialBlend: 0
   - name: Zakku_100
     audioClip: {fileID: 8300000, guid: e50d45ad46b991d45a702484f971935a, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.06
+    volume: 0.61
     pitch: 1
     loop: 1
     spatialBlend: 0
   - name: Zakku_110
     audioClip: {fileID: 8300000, guid: 39fd9e939fef42a43a78a466a4ec1daf, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.06
+    volume: 0.59
     pitch: 1
     loop: 1
     spatialBlend: 0
   - name: Zakku_120
     audioClip: {fileID: 8300000, guid: c72f69ce581d4404bb8a6f7d1970a7ed, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.06
+    volume: 0.58
     pitch: 1
     loop: 1
     spatialBlend: 0
   - name: Zakku_130
     audioClip: {fileID: 8300000, guid: 004ef3bbf99ca9f48b5ccc5f51b8b81a, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.06
+    volume: 0.55
     pitch: 1
     loop: 1
     spatialBlend: 0
   - name: Zakku_140
     audioClip: {fileID: 8300000, guid: 5997660bce04c0b4db14729abab54f9a, type: 3}
     audioSource: {fileID: 0}
-    volume: 0.06
+    volume: 0.56
     pitch: 1
     loop: 1
+    spatialBlend: 0
+  - name: Impact1
+    audioClip: {fileID: 8300000, guid: a4e0a783d55781c41b0221f72b1fd6a0, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: Impact2
+    audioClip: {fileID: 8300000, guid: 19a994689c2e18b43a2c483d1f2d5e34, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: Impact3
+    audioClip: {fileID: 8300000, guid: 6bd531d871acf2642a27d61719ead050, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.44
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: Impact4
+    audioClip: {fileID: 8300000, guid: 0be8e16fc0792be4089acd63c133311f, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.25
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: ToyCatched
+    audioClip: {fileID: 8300000, guid: 38113fd2dd39d494d970d659b13ac908, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  impacts:
+  - name: 0
+    audioClip: {fileID: 8300000, guid: 84993639ef97ff64f82f6ea02380a735, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0.67
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: 1
+    audioClip: {fileID: 8300000, guid: 029f60acd949940469912ab2e03a2a1f, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: 2
+    audioClip: {fileID: 8300000, guid: 84993639ef97ff64f82f6ea02380a735, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
+    spatialBlend: 0
+  - name: 3
+    audioClip: {fileID: 8300000, guid: 024f088411022194c805a20aac7e0ff1, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 0
     spatialBlend: 0
