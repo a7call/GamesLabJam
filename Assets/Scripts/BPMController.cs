@@ -78,7 +78,6 @@ public class BPMController : Singleton<BPMController>
            
             //On a passé un beat entier
             beatFull = true;
-            Debug.Log("beat") ;
             beatCountFull++;
         }
 
@@ -92,7 +91,6 @@ public class BPMController : Singleton<BPMController>
             beatTimerD2 -= beatIntervalD2;
             beatD2 = true;
             beatCountD2++; 
-             Debug.Log("halfbeat");
 
             if(newSongQueued && (beatCountD2 % 2 != 0))
             { 
@@ -149,14 +147,14 @@ public class BPMController : Singleton<BPMController>
         }
         else
         {
-            currentArrows.Clear();
-            Debug.Log("loose a life");
+            currentArrows.Clear();            
             looseALife();
         }
     }
 
     public void looseALife()
     {
+        AudioManager.Instance.failedSound();
         if(ScoreManager.Instance.lifePlayer < 1)
         {
             Debug.Log("TAS PERDU");
