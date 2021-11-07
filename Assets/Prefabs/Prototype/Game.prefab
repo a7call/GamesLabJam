@@ -48,7 +48,7 @@ MonoBehaviour:
   currentSpawnedToy: {fileID: 0}
   spawner: {fileID: 53136012}
   machinePos: {fileID: 734547175}
-  duration: 1
+  duration: 0.3
   strenght: 0.7
   vibrato: 10
   randomness: 90
@@ -508,7 +508,7 @@ MonoBehaviour:
   GFX: {fileID: 503693051}
   downPos: {fileID: 943372991}
   UpPos: {fileID: 359996825}
-  moveDuration: 0.5
+  moveDuration: 0.2
   arrowSpawner: {fileID: 8020831963709037324}
 --- !u!1 &734547174
 GameObject:

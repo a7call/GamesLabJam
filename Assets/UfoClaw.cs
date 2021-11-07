@@ -16,8 +16,6 @@ public class UfoClaw : Singleton<UfoClaw>
     [Header("Arrows")]
     [SerializeField] ArrowSpawner arrowSpawner;
 
-    [SerializeField] DisplayToyToCatch displayToy;
-
     private Toy pickedToy;
 
     private bool catchable = false;
