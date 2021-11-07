@@ -10,6 +10,10 @@ public class UfoClaw : Singleton<UfoClaw>
     public Transform downPos;
     public Transform UpPos;
 
+    [Header("Sprites")]
+    public Sprite open;
+    public Sprite closed;
+
     [Header("Animation")]
     public float moveDuration = 1f;
 
@@ -19,12 +23,21 @@ public class UfoClaw : Singleton<UfoClaw>
     private Toy pickedToy;
 
     private bool catchable = false;
+
+    private SpriteRenderer sr;
+
+    private void Awake()
+    {
+        sr = GFX.GetComponent<SpriteRenderer>();
+    }
     public void TryGetToy()
     {
+        sr.sprite = open;
         // MOVE DOWN
         GFX.DOMove(downPos.position, moveDuration).OnComplete(() =>
         {
             catchable = true;
+            sr.sprite = closed;
             ScoreToy();
         });
         
@@ -33,7 +46,7 @@ public class UfoClaw : Singleton<UfoClaw>
     public void ScoreToy()
     {
         GFX.DOMove(UpPos.position, moveDuration).OnComplete(() =>
-        {   
+        {
             Destroy(pickedToy.gameObject);
 
         });  
@@ -47,7 +60,6 @@ public class UfoClaw : Singleton<UfoClaw>
             if(catchable)          
             {
                 pickedToy = collision.GetComponent<Toy>();
-                pickedToy.GetComponent<SpriteRenderer>().sortingOrder = 3;
                 catchable = false;
                 collision.transform.SetParent(GFX);
             }         
