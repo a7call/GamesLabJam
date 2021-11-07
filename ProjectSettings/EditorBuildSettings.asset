@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu/Loose.unity
     guid: de9c38c8b31094043b5e583b680c9a91
   - enabled: 1
-    path: Assets/Scenes/Menu/PlayTest.unity
-    guid: 5749d68fce935a64f9a9d8a716b8ce44
-  - enabled: 1
     path: Assets/Scenes/Menu/Win.unity
     guid: 90660328d865e714bb2bdb1feb5e3545
+  - enabled: 1
+    path: Assets/Scenes/PlayScene.unity
+    guid: 5ac1b6d0676279e4fa4a330e052c171c
   m_configObjects: {}
