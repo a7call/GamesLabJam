@@ -26,9 +26,6 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     public Vector3 strenghtFail;
     public int vibratoFail = 10;
 
-
-
-
     private void Update()
     {
         if(Input.anyKeyDown && !firstInput)

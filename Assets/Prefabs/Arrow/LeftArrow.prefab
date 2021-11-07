@@ -93,6 +93,7 @@ MonoBehaviour:
   arrowType: 0
   isHit: 0
   isActivated: 1
+  glowMat: {fileID: 2100000, guid: 7ca156fd307531243ad19c4a29247f29, type: 2}
 --- !u!50 &47444219751500109
 Rigidbody2D:
   serializedVersion: 4

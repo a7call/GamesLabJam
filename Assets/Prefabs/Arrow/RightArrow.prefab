@@ -93,6 +93,7 @@ MonoBehaviour:
   arrowType: 1
   isHit: 0
   isActivated: 1
+  glowMat: {fileID: 2100000, guid: 7ca156fd307531243ad19c4a29247f29, type: 2}
 --- !u!61 &7215860527627203735
 BoxCollider2D:
   m_ObjectHideFlags: 0
