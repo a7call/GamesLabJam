@@ -139,10 +139,11 @@ public class BPMController : Singleton<BPMController>
 
     public void looseALife()
     {
+        
+
         if(ScoreManager.Instance.lifePlayer < 1)
         {
             Debug.Log("TAS PERDU");
-            SceneManager.Instance.LooseScene();
         }
         else
         {
