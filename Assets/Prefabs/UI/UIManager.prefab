@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8a15c3267c9524d8d3567a6ec2a40d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSceneName: PlayTest
+  playSceneName: PlayScene
   winSceneName: Win
   looseSceneName: Loose
   homeSceneName: Home
