@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &124655511
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 124655513}
+  - component: {fileID: 124655512}
+  m_Layer: 0
+  m_Name: BPMManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &124655513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124655511}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7129209867574645802}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &124655512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124655511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b4a04a4abf909e439db0a079b6f0a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bpm: 60
+  spawner: {fileID: 638526722}
+  claw: {fileID: 865856625}
+  beatTimer: 0
+  isBeatable: 0
+  newSongQueued: 0
+  currentArrows: []
 --- !u!1 &265239404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2345,6 +2395,7 @@ Transform:
   - {fileID: 1220562719}
   - {fileID: 5098612555504447543}
   - {fileID: 865856624}
+  - {fileID: 124655513}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2600,6 +2651,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 409465090175459598}
     m_Modifications:
+    - target: {fileID: 337138288, guid: ddf500f767dec2e4b8731c20f45dd0b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1026519733, guid: ddf500f767dec2e4b8731c20f45dd0b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1199216022, guid: ddf500f767dec2e4b8731c20f45dd0b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907139885, guid: ddf500f767dec2e4b8731c20f45dd0b9, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3409461433182733896, guid: ddf500f767dec2e4b8731c20f45dd0b9, type: 3}
       propertyPath: m_Name
       value: 'ScoreUI '
