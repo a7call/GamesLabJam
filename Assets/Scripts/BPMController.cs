@@ -32,7 +32,7 @@ public class BPMController : Singleton<BPMController>
 
     //Comme beatFull, mais sur un 8eme de temps
     public static bool beatD2;
-    public static int beatCountD8;
+    public static int beatCountD2;
 
     public  bool isBeatable = false;
 
@@ -77,7 +77,8 @@ public class BPMController : Singleton<BPMController>
             beatTimer -= beatInterval;
            
             //On a passé un beat entier
-            beatFull = true; 
+            beatFull = true;
+            Debug.Log("beat") ;
             beatCountFull++;
         }
 
@@ -90,10 +91,10 @@ public class BPMController : Singleton<BPMController>
         {
             beatTimerD2 -= beatIntervalD2;
             beatD2 = true;
-            beatCountD8++; 
+            beatCountD2++; 
+             Debug.Log("halfbeat");
 
-
-            if(newSongQueued )
+            if(newSongQueued && (beatCountD2 % 2 != 0))
             { 
                 AudioManager audioManager = AudioManager.Instance;
                 audioManager.Stop(songPlaying);
