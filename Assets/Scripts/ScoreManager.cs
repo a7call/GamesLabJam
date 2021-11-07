@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class ScoreManager : Singleton<ScoreManager>
 {
+    //Le nombre de vie du joueur est décidé par le nombre de sprites représentant sa vie dans la hierarchie du scoreUI
     [HideInInspector]
-    public int score;
+    public int score, comboCount, lifePlayer;
 
 
-    public int comboCount;
+
     int lastScore;
     [Header("Combo parameters")]
     [SerializeField] float multiplicator = 1.8f;
@@ -17,14 +18,20 @@ public class ScoreManager : Singleton<ScoreManager>
 
     [SerializeField] float comboScoreBase = 15;
 
+    [Header("UI)")]
+    [SerializeField] ScoreUI scoreUI;
+
+
+
 
 
     void Start(){
         lastScore = 0;
+        lifePlayer = scoreUI.transform.GetChild(2).childCount;
     }
     void Update()
     {
-           // Debug.Log("SCORE : " + score );
+            Debug.Log("SCORE : " + score );
             changeBPM();
     }
     public void UpScoreToy()
@@ -58,5 +65,11 @@ public class ScoreManager : Singleton<ScoreManager>
             BPMController.Instance.bpm += 10 ;
             lastScore = score;
         }
+    }
+
+    public void looseLife()
+    {
+        lifePlayer --;
+        scoreUI.handleLifePlayerUI();
     }
 }

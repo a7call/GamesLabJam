@@ -80,7 +80,9 @@ public class BPMController : Singleton<BPMController>
     public void ProcessInput(string input)
     {
         if (currentArrows.Count <= 0)
-            return;
+            {
+                return;
+            } 
         
         var matchingArrow = currentArrows.FirstOrDefault(a => a.arrowType.ToString() == input);
 
@@ -107,8 +109,23 @@ public class BPMController : Singleton<BPMController>
         else
         {
             currentArrows.Clear();
-            Debug.Log("Loose");
+            Debug.Log("loose a life");
+            looseALife();
             ScoreManager.Instance.stopCombo();
+        }
+    }
+
+    public void looseALife()
+    {
+        
+
+        if(ScoreManager.Instance.lifePlayer < 1)
+        {
+            Debug.Log("TAS PERDU");
+        }
+        else
+        {
+            ScoreManager.Instance.looseLife();
         }
     }
 
