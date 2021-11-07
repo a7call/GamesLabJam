@@ -5,7 +5,6 @@ public enum ToyType
 {
     Bear,
     Bunny,
-    Other
 }
 public class Toy : MonoBehaviour
 {
