@@ -45,7 +45,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   comboCount: 0
+  lifePlayer: 4
   multiplicator: 1.1
   scoreAddToy: 1000
   scoreAddFleche: 100
   comboScoreBase: 250
+  scoreUI: {fileID: 0}

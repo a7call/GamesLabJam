@@ -31,7 +31,6 @@ public class ScoreManager : Singleton<ScoreManager>
     }
     void Update()
     {
-            Debug.Log("SCORE : " + score );
             changeBPM();
     }
     public void UpScoreToy()
@@ -61,8 +60,11 @@ public class ScoreManager : Singleton<ScoreManager>
 
 
     void changeBPM(){
-        if (score > (lastScore + 20000) && score < 140000){
-            BPMController.Instance.bpm += 10 ;
+        if (score > (lastScore + 20000) && score < 120000){
+            Debug.Log("changeBPM");
+            BPMController.Instance.bpm += 5 ;
+            string musicToPlay = "Zakku_" + BPMController.Instance.bpm*2;
+            BPMController.Instance.askForNewSong(musicToPlay);
             lastScore = score;
         }
     }
