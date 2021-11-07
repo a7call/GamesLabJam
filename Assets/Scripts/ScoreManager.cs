@@ -73,6 +73,5 @@ public class ScoreManager : Singleton<ScoreManager>
     {
         lifePlayer --;
         scoreUI.handleLifePlayerUI();
-        
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5265164679095743456}
   - component: {fileID: 8523295145470511409}
   m_Layer: 0
-  m_Name: SceneManager
+  m_Name: UIManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5239b64fa2f4ab44b16367c7699221c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playSceneName: PlayScene
+  playSceneName: PlayTest
   winSceneName: Win
   looseSceneName: Loose
   homeSceneName: Home

@@ -7,9 +7,6 @@ public class ScoreUI : MonoBehaviour
 {
 
     public TextMeshProUGUI scoreText, comboText, lifePlayertext;
-
-    public HeartsBar heartsBar;
-    
     // Start is called before the first frame update
     void Start()
     {
@@ -29,6 +26,5 @@ public class ScoreUI : MonoBehaviour
     public void handleLifePlayerUI()
     {
         this.transform.GetChild(2).transform.GetChild(ScoreManager.Instance.lifePlayer).gameObject.SetActive(false);
-        heartsBar.LooseHeart();
     }
 }

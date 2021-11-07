@@ -13,7 +13,16 @@ public class PlayerInputManager : MonoBehaviour
     public Animator HandL;
 
     [Header("ToReact")]
-    public RectTransform machine;
+    public List<RectTransform> toReact;
+
+    [Header("ShakeAnimation")]
+    public float duration = 1;
+    public float strenght = 1;
+    public int vibrato = 10;
+    public float randomness = 90;
+    public bool fadeout = true;
+    
+
     private void Update()
     {
         if(Input.anyKeyDown && !firstInput)
@@ -27,14 +36,17 @@ public class PlayerInputManager : MonoBehaviour
         {
             HandR.SetTrigger("Slap");
             HandL.SetTrigger("Slap");
+            MoveMachine();
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             HandL.SetTrigger("Slap");
+            MoveMachine();
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             HandR.SetTrigger("Slap");
+            MoveMachine();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && BPMController.Instance.isBeatable)
@@ -52,6 +64,15 @@ public class PlayerInputManager : MonoBehaviour
         else if ((Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)) && !BPMController.Instance.isBeatable)
         {
             BPMController.Instance.looseALife();
+        }
+       
+    }
+
+    void MoveMachine()
+    {
+        foreach(var obj in toReact)
+        {
+            obj.DOShakeScale(duration, strenght, vibrato, 0, fadeout); 
         }
        
     }
