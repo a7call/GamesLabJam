@@ -145,6 +145,7 @@ public class BPMController : Singleton<BPMController>
         if(ScoreManager.Instance.lifePlayer < 1)
         {
             Debug.Log("TAS PERDU");
+            MySceneManager.Instance.LooseScene();
         }
         else
         {
