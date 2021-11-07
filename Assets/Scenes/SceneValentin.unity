@@ -284,6 +284,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1058374010908033916, guid: 88dc0554f28d47442b00ef61be696580, type: 3}
+      propertyPath: m_PreserveAspect
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1058374011009625103, guid: 88dc0554f28d47442b00ef61be696580, type: 3}
       propertyPath: m_RenderMode
       value: 0
