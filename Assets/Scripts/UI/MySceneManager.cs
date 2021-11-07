@@ -7,6 +7,9 @@ public class MySceneManager : Singleton<MySceneManager>
     public string winSceneName;
     public string looseSceneName;
     public string homeSceneName;
+
+
+    public GameObject ControlWindow;
     
     public void PlayScene()
     {
@@ -26,5 +29,10 @@ public class MySceneManager : Singleton<MySceneManager>
     public void HomeScene()
     {
         SceneManager.LoadScene(homeSceneName);
+    }
+
+    public void SetActiveControlWindow()
+    {
+        ControlWindow.SetActive(true);
     }
 }
