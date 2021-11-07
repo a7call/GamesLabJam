@@ -310,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7497018993979420829}
   - component: {fileID: 7497018993979420830}
-  - component: {fileID: 7497018993979420831}
+  - component: {fileID: 1448991734421506527}
   m_Layer: 5
   m_Name: Hearts
   m_TagString: Untagged
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7497018993979420831
+--- !u!114 &1448991734421506527
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -376,7 +376,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7497018993979420828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b90668aac2b74f143a917e159663034e, type: 3}
+  m_Script: {fileID: 11500000, guid: 18c571ac3db1a264ea8c12b7f10ea86d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   heartList:
