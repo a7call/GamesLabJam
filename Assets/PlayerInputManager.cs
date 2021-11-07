@@ -18,13 +18,12 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
 
     [Header("ShakeAnimationSucces")]
     public float duration = 1;
-    public float strenght = 1;
+    public Vector3 strenght;
     public int vibrato = 10;
-    public bool fadeout = true;
 
     [Header("ShakeAnimationFail")]
     public float durationFail = 1;
-    public float strenghtFail = 1;
+    public Vector3 strenghtFail;
     public int vibratoFail = 10;
 
 
@@ -73,16 +72,19 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         }
        
     }
-
+    Tween tween;
     public void MoveMachineSucess()
     {
+        
         foreach (var obj in toReactUI)
         {
-            obj.DOShakeScale(duration, strenght, vibrato, 0, fadeout);
+
+           obj.DOPunchScale(new Vector3(-0.1f, 0, 0f), duration, vibrato);
+
         }
         foreach (var obj in toReact)
         {
-            obj.DOShakeScale(duration, strenght, vibrato, 0, fadeout);
+            obj.DOPunchScale(new Vector3(-0.1f, 0, 0f), duration, vibrato);
         }
 
     }
@@ -90,11 +92,11 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
     {
         foreach (var obj in toReactUI)
         {
-            obj.DOShakeScale(durationFail, strenghtFail, vibratoFail, 0, fadeout);
+            obj.DOPunchScale(strenghtFail, durationFail, vibratoFail);
         }
         foreach (var obj in toReact)
         {
-            obj.DOShakeScale(durationFail, strenghtFail, vibratoFail, 0, fadeout);
+            obj.DOPunchScale(strenghtFail, durationFail, vibratoFail);
         }
     }
 
