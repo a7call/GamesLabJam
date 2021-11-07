@@ -12,7 +12,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     int lastScore;
     [Header("Combo parameters")]
-    [SerializeField] float multiplicator = 1.8f;
+    [SerializeField] float multiplicator = 1.1f;
     [SerializeField] float scoreAddToy = 1000;
     [SerializeField] float scoreAddFleche= 10;
 
@@ -60,7 +60,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
 
     void changeBPM(){
-        if ((score > (lastScore + 20000)) && (BPMController.Instance.bpm < 70)){
+        if ((score > (lastScore + 15000)) && (BPMController.Instance.bpm < 70)){
             Debug.Log("changeBPM");
             BPMController.Instance.bpm += 5 ;
             string musicToPlay = "Zakku_" + BPMController.Instance.bpm*2;

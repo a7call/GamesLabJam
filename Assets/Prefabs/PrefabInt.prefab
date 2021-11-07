@@ -969,8 +969,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4284435176
-  m_fontColor: {r: 0.9098039, g: 0.2901961, b: 0.37254903, a: 1}
+    rgba: 4282323089
+  m_fontColor: {r: 0.5686275, g: 0.0627451, b: 0.24705884, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2958,6 +2958,7 @@ MonoBehaviour:
   isBeatable: 0
   newSongQueued: 0
   currentArrows: []
+  LooseCanvas: {fileID: 0}
 --- !u!1 &5478850959696262535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3851,6 +3852,10 @@ PrefabInstance:
     - target: {fileID: 5098612555561674789, guid: 45e50cccf86a33b4fafb18d4cf41737e, type: 3}
       propertyPath: lifePlayer
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5098612555561674789, guid: 45e50cccf86a33b4fafb18d4cf41737e, type: 3}
+      propertyPath: multiplicator
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5098612555561674810, guid: 45e50cccf86a33b4fafb18d4cf41737e, type: 3}
       propertyPath: m_RootOrder
