@@ -27,7 +27,7 @@ public class ScoreManager : Singleton<ScoreManager>
 
     void Start(){
         lastScore = 0;
-        lifePlayer = scoreUI.transform.GetChild(2).childCount;
+        //lifePlayer = scoreUI.transform.GetChild(2).childCount;
     }
     void Update()
     {

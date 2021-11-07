@@ -1,11 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlayerInputManager : MonoBehaviour
 {
 
     private bool firstInput=false;
+
+    [Header("Hand Animator")]
+    public Animator HandR;
+    public Animator HandL;
+
+    [Header("ToReact")]
+    public RectTransform machine;
     private void Update()
     {
         if(Input.anyKeyDown && !firstInput)
@@ -13,6 +21,20 @@ public class PlayerInputManager : MonoBehaviour
             //start the game
             firstInput = true;
             BPMController.Instance.setStartGame();
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow) )
+        {
+            HandR.SetTrigger("Slap");
+            HandL.SetTrigger("Slap");
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            HandL.SetTrigger("Slap");
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            HandR.SetTrigger("Slap");
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow) && BPMController.Instance.isBeatable)
@@ -33,4 +55,5 @@ public class PlayerInputManager : MonoBehaviour
         }
        
     }
+
 }
