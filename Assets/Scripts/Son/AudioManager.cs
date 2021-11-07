@@ -7,7 +7,7 @@ public class AudioManager : Singleton<AudioManager>
 
     public SoundParam[] soundsFx;
 
-
+    public SoundParam[] impacts;
 
     public void Start()
     {
@@ -122,7 +122,7 @@ public class AudioManager : Singleton<AudioManager>
         sp.audioSource.spatialBlend = sp.spatialBlend;
     }
 
-    public void randomPitch(string name, GameObject sourceObject,float pitchValueMin, float picthValueMax){
+    public void playRandomPitch(string name, GameObject sourceObject,float pitchValueMin, float picthValueMax){
          try{
             SoundParam sp = Array.Find(soundsFx, sound => sound.name.Equals(name));
 
@@ -135,11 +135,65 @@ public class AudioManager : Singleton<AudioManager>
 
             float rand = UnityEngine.Random.Range(pitchValueMin,picthValueMax);
             sp.audioSource.pitch = rand;
+            sp.audioSource.PlayOneShot(sp.audioClip);
 
 
          }
         catch(NullReferenceException){
             Debug.Log("Audio clip" + name + " non existant");
         }
+    }
+
+    public void playFXRandom()
+    {
+            try{
+            // Debug.Log("Name : " + songName);
+
+            int fxChosen = UnityEngine.Random.Range(0,impacts.Length-1); 
+            SoundParam sp = impacts[fxChosen];
+        
+            Debug.Log("sfx : " + sp.audioClip.name);
+            //Si vide, on l'initialise (il va avoir la position de l'objet child)
+            if(sp.audioSource == null)
+            {
+
+                LoadSource(sp, this.gameObject);
+
+            }
+            else
+            {
+
+                sp.audioSource.PlayOneShot(sp.audioClip);
+            }
+        }
+        catch(NullReferenceException){
+            Debug.Log("Audio clip" + impacts[0] + " non existant");
+        }
+    }
+
+
+    public void pointsClassic()
+    {
+        //Impact1
+        playRandomPitch("Impact1", this.gameObject, 0.8f, 1.1f);
+        //Impact2
+        playRandomPitch("Impact2", this.gameObject, 0.7f, 1.1f);
+        playRandomPitch("Impact3", this.gameObject, 0.9f, 1.1f);
+        playRandomPitch("Impact4", this.gameObject, 0.7f, 1.2f);
+
+
+        //FX
+        playFXRandom();
+    }
+
+    public void pointsToy()
+    {
+        //Impact1
+        Play("Impact1", this.gameObject);
+        playRandomPitch("Impact3", this.gameObject, 0.9f, 1.1f);
+        playRandomPitch("Impact4", this.gameObject, 0.7f, 1.2f);
+
+        //FX stylé
+        Play("ToyCatched", this.gameObject);
     }
 }
