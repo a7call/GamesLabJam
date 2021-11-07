@@ -41,11 +41,17 @@ public class UfoClaw : Singleton<UfoClaw>
 
     public void OnCollideWithToy(Collider2D collision)
     {
-        if (collision.CompareTag("Toy") && catchable)
-        {
-            catchable = false;
-            pickedToy = collision.GetComponent<Toy>();
-            collision.transform.SetParent(GFX);
+      
+        if (collision.CompareTag("Toy") )
+        {    
+            if(catchable)          
+            {
+                pickedToy = collision.GetComponent<Toy>();
+                pickedToy.GetComponent<SpriteRenderer>().sortingOrder = 3;
+                catchable = false;
+                collision.transform.SetParent(GFX);
+            }         
+           
         }
         
     }

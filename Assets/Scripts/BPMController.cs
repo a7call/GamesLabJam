@@ -117,7 +117,7 @@ public class BPMController : Singleton<BPMController>
                 ScoreManager.Instance.UpScoreToy();
                 ToyManager.Instance.currentSpawnedToy.isPicked = true;
                 claw.TryGetToy();
-                ToyManager.Instance.ScorePickedToy();
+                ToyManager.Instance.ScorePickedToy();        
 
             }
             else

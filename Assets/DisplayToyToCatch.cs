@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class DisplayToyToCatch : MonoBehaviour
 {
-    public Color BearColor;
-    public Color BunnyColor;
-    public Color OtherColor;
+    public Sprite Bunny;
+    public Sprite Bear;
 
     private Image image;
 
@@ -22,13 +21,10 @@ public class DisplayToyToCatch : MonoBehaviour
         switch (type)
         {
             case ToyType.Bear:
-                image.color = BearColor;
+                image.sprite = Bear;
                 break;
             case ToyType.Bunny:
-                image.color = BunnyColor;
-                break;
-            case ToyType.Other:
-                image.color = OtherColor;
+                image.sprite = Bunny;
                 break;
         }
     }
