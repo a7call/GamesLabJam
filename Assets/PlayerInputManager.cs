@@ -5,7 +5,7 @@ using DG.Tweening;
 
 public class PlayerInputManager : Singleton<PlayerInputManager>
 {
-
+    public GameObject textTuto;
     private bool firstInput=false;
 
     [Header("Hand Animator")]
@@ -28,9 +28,10 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
 
     private void Update()
     {
-        if(Input.anyKeyDown && !firstInput)
+        if(Input.GetKeyDown(KeyCode.Space) && !firstInput)
         {
             //start the game
+            textTuto.SetActive(false);
             firstInput = true;
             BPMController.Instance.setStartGame();
         }
@@ -43,7 +44,6 @@ public class PlayerInputManager : Singleton<PlayerInputManager>
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             HandL.SetTrigger("Slap");
-
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
