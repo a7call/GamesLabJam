@@ -42,6 +42,8 @@ public class BPMController : Singleton<BPMController>
     public List<Arrow> currentArrows;
 
     private int  startGame = 0 ;
+
+    [SerializeField] GameObject LooseCanvas;
     private void Awake()
     {
         currentArrows = new List<Arrow>();
@@ -146,10 +148,10 @@ public class BPMController : Singleton<BPMController>
     public void looseALife()
     {
         AudioManager.Instance.failedSound();
-        if(ScoreManager.Instance.lifePlayer < 1)
+        if(ScoreManager.Instance.lifePlayer <= 1)
         {
-            Debug.Log("TAS PERDU");
-            MySceneManager.Instance.LooseScene();
+            Time.timeScale = 0;
+            LooseCanvas.SetActive(true);
         }
         else
         {

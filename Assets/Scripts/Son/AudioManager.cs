@@ -148,6 +148,7 @@ public class AudioManager : Singleton<AudioManager>
     {
             try{
             // Debug.Log("Name : " + songName);
+           
 
             int fxChosen = UnityEngine.Random.Range(0,impacts.Length); 
             Debug.Log("fxChosen : " + fxChosen );
@@ -171,6 +172,8 @@ public class AudioManager : Singleton<AudioManager>
 
     public void pointsClassic()
     {
+        if (Time.timeScale == 0)
+            return;
         //Impact1
         playRandomPitch("Impact1", this.gameObject, 0.8f, 1.1f);
         //Impact2
@@ -185,6 +188,8 @@ public class AudioManager : Singleton<AudioManager>
 
     public void pointsToy()
     {
+        if (Time.timeScale == 0)
+            return;
         //Impact1
         Play("Impact1", this.gameObject);
         playRandomPitch("Impact3", this.gameObject, 0.9f, 1.1f);
@@ -196,6 +201,8 @@ public class AudioManager : Singleton<AudioManager>
 
     public void failedSound()
     {
+        if (Time.timeScale == 0)
+            return;
         playRandomPitch("Impact4", this.gameObject, 0.7f, 1.2f);
 
         Play("Failed", this.gameObject);
