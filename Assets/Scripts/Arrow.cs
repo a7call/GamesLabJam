@@ -19,6 +19,8 @@ public class Arrow : MonoBehaviour
     public ArrowType arrowType;
     public bool isHit = false;
     public bool isActivated = true;
+
+    public Material glowMat;
     private void Awake()
     {
         DOTween.Init();
@@ -72,6 +74,7 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         SetBeatableTrue();
+        GetComponent<Image>().material = glowMat;
     }
 
 }
