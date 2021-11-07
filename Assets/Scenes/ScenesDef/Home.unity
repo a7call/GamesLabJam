@@ -1891,7 +1891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &831445728
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2976,7 +2976,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 217741502}
         m_TargetAssemblyTypeName: MySceneManager, Assembly-CSharp
-        m_MethodName: PlayScene
+        m_MethodName: SetActiveControlWindow
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3506,9 +3506,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5265164679095743457, guid: 15182c4385fa4b842a31b7220fef123a, type: 3}
+      propertyPath: ControlWindow
+      value: 
+      objectReference: {fileID: 831445727}
     - target: {fileID: 5265164679095743458, guid: 15182c4385fa4b842a31b7220fef123a, type: 3}
       propertyPath: m_Name
       value: SceneManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 5265164679095743458, guid: 15182c4385fa4b842a31b7220fef123a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15182c4385fa4b842a31b7220fef123a, type: 3}
